@@ -51,7 +51,7 @@
   ],
   "ignore": [
     "/*.*",
-    "css/demo.css",
-    "js/demo.js"
+    "css/keju.css",
+    "js/keju.js"
   ]
 }
