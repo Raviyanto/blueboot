@@ -19,7 +19,7 @@ module.exports = function (grunt) {
             all: [
                 'Gruntfile.js',
                 'js/bootstrap-image-gallery.js',
-                'js/demo.js'
+                'js/keju.js'
             ]
         },
         less: {
