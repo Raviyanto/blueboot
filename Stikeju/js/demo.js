@@ -51,7 +51,11 @@ $(function () {
             carousel: true
         });
     });
-
+   
+    $('#browse_app').click(function(){
+        window.location='/'
+    });
+      
     // Initialize the Gallery as video carousel:
     blueimp.Gallery([
         {
