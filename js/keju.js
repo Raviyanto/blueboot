@@ -29,6 +29,10 @@ $(function () {
         event.preventDefault();
         blueimp.Gallery($('#links a'), $('#blueimp-gallery').data());
     });
+    
+    $('#browse_app').click(function(){
+        window.location='Stikeju/index.html'
+    });
 
     $('#video-gallery-button').on('click', function (event) {
         event.preventDefault();
