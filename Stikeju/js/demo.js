@@ -21,8 +21,9 @@ $(function () {
         url: 'https://api.flickr.com/services/rest/',
         data: {
             format: 'json',
-            method: 'flickr.interestingness.getList',
+            method: 'flickr.people.findByEmail',
             api_key: 'cfa1efa4342aab149bcc563094718521' // jshint ignore:line
+            find_email: 'n.kresnaravi@yahoo.co.id'
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
