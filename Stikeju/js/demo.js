@@ -22,7 +22,7 @@ $(function () {
         data: {
             format: 'json'
             method: 'flickr.people.getPublicPhotos',
-            api_key: '56df459aa039a065a334ea8873136c8a' // jshint ignore:line
+            api_key: 'cfa1efa4342aab149bcc563094718521' // jshint ignore:line
             user_id: '44329575@N02'
             
         },
