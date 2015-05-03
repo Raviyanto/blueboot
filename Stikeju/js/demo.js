@@ -21,10 +21,8 @@ $(function () {
         url: 'https://api.flickr.com/services/rest/',
         data: {
             format: 'json'
-            method: 'flickr.people.findByUsername',
+            method: 'flickr.photos.getRecen',
             api_key: 'cfa1efa4342aab149bcc563094718521' // jshint ignore:line
-            username: 'raviyanto'
-            
             
         },
         dataType: 'jsonp',
