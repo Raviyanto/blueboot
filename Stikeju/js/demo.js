@@ -21,10 +21,8 @@ $(function () {
         url: 'https://api.flickr.com/services/rest/',
         data: {
             format: 'json',
-            method: 'flickr.photosets.getPhotos',
-            api_key: 'd4586e9543a2ad8c7968c435d3ddb888' // jshint ignore:line
-            user_id: '44329575%40N02'
-            photoset_id= '72157652334119505'
+            method: 'flickr.commons.getInstitutions',
+            api_key: 'd4586e9543a2ad8c7968c435d3ddb888' 
         }, 
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
