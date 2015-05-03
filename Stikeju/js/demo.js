@@ -24,7 +24,8 @@ $(function () {
             method: 'flickr.interestingness.getList',
             api_key: '62b5afe78c5c588f8b21167433cc3803' // jshint ignore:line
             api_sig=284807d5c456bd7ce2c37716c11b6460
-        }, dataType: 'jsonp',
+        }, 
+        dataType: 'jsonp',
         jsonp: 'jsoncallback'
     }).done(function (result) {
         var carouselLinks = [],
