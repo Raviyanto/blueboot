@@ -15,17 +15,13 @@ $(function () {
     'use strict';
 
     // Load demo images from flickr:
-     $.ajax({
-        // Flickr API is SSL only:
-        // https://code.flickr.net/2014/04/30/flickr-api-going-ssl-only-on-june-27th-2014/
-        url: 'https://api.flickr.com/services/rest/',
-        data: {
-            format: 'json',
-            method: 'flickr.interestingness.getList',
-            api_key: '7617adae70159d09ba78cfec73c13be3' // jshint ignore:line
-        },
-        dataType: 'jsonp',
-        jsonp: 'jsoncallback'
+     $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+{
+  tags: "jquery,javascript",
+  tagmode: "any",
+  format: "json"
+},
+
     }).done(function (result) {
         var carouselLinks = [],
             linksContainer = $('#links'),
