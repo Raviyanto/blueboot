@@ -23,7 +23,7 @@ $(function () {
             format: 'json',
             method: 'flickr.people.getPublicPhotos',
             api_key: 'd4586e9543a2ad8c7968c435d3ddb888' // jshint ignore:line
-            user_id: '44329575@N02'
+            user_id: '44329575%40N02'
         }, 
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
