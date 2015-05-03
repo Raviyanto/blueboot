@@ -20,10 +20,12 @@ $(function () {
         // https://code.flickr.net/2014/04/30/flickr-api-going-ssl-only-on-june-27th-2014/
         url: 'https://api.flickr.com/services/rest/',
         data: {
-            format: 'json',
-            method: 'flickr.people.findByEmail',
+            format: 'json'
+            method: 'flickr.people.findByUsername',
             api_key: 'cfa1efa4342aab149bcc563094718521' // jshint ignore:line
-            find_email: 'n.kresnaravi@yahoo.co.id'
+            username: 'raviyanto'
+            
+            
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
