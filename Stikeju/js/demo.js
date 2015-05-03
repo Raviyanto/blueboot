@@ -21,8 +21,8 @@ $(function () {
         url: 'https://api.flickr.com/services/rest/',
         data: {
             format: 'json',
-            method: 'flickr.interestingness.getList',
-            api_key: '7617adae70159d09ba78cfec73c13be3' // jshint ignore:line
+            method: 'flickr.favorites.getLis',
+            api_key: '62b5afe78c5c588f8b21167433cc3803' // jshint ignore:line
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
