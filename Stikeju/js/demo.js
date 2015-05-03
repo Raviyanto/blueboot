@@ -15,10 +15,6 @@ $(function () {
     'use strict';
 
     // Load demo images from flickr:
-     $(function () {
-    'use strict';
-
-    // Load demo images from flickr:
     $.ajax({
         // Flickr API is SSL only:
         // https://code.flickr.net/2014/04/30/flickr-api-going-ssl-only-on-june-27th-2014/
