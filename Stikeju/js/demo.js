@@ -12,7 +12,7 @@
 /* global blueimp, $ */
 
 $(function () {
-   // 'use strict';
+    'use strict';
 
     // Load demo images from flickr:
     $.ajax({
@@ -22,7 +22,7 @@ $(function () {
         data: {
             format: 'json',
             method: 'flickr.people.getPublicPhotos',
-            api_key: 'c9a71627ffaa821e012308c4dd4840cc', // jshint ignore:line
+            api_key: 'c9a71627ffaa821e012308c4dd4840cc', 
             user_id: '44329575@N02'
         },
         dataType: 'jsonp',
