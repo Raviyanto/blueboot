@@ -29,3 +29,8 @@ a:hover {
 	overflow: auto;
 	color: #333;
 }
+footer {
+  margin: auto;
+  width: 960px;
+  color: #333;
+}
