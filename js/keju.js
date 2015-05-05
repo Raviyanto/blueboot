@@ -38,7 +38,7 @@ $(function () {
             $('<a/>')
                 .append($('<img>').prop('src', baseUrl + '_s.jpg'))
                 .prop('href', baseUrl + '_b.jpg')
-                .prop('title', photoset.title._content)
+                .prop('title', photoset.title)
                 .attr('data-gallery', '')
                 .appendTo(linksContainer);
         });
