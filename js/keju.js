@@ -23,7 +23,9 @@ $(function () {
             format: 'json',
             method: 'flickr.groups.pools.getPhotos',
             api_key: '25aaf304700ebcd3db16a5b1c45cded2',
-            group_id: '2857925@N22'
+            group_id: '2857925@N22',
+            user_id: '44329575@N02',
+            per_page: '50'
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
