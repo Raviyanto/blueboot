@@ -21,9 +21,8 @@ $(function () {
         url: 'https://api.flickr.com/services/rest/',
         data: {
             format: 'json',
-            method: 'flickr.groups.pools.getPhotos',
-            api_key: '25aaf304700ebcd3db16a5b1c45cded2',
-            group_id: '2857925@N22',
+            method: 'flickr.photosets.getList',
+            api_key: '289e70286ee086652c2dba8b889bb5e3',
             user_id: '44329575@N02',
             per_page: '50'
         },
@@ -33,13 +32,13 @@ $(function () {
         var linksContainer = $('#links'),
             baseUrl;
         // Add the demo images as links with thumbnails to the page:
-        $.each(result.photos.photo, function (index, photo) {
-            baseUrl = 'https://farm' + photo.farm + '.static.flickr.com/' +
-                photo.server + '/' + photo.id + '_' + photo.secret;
+        $.each(result.photosets.photoset, function (index, photoset) {
+            baseUrl = 'https://farm' + photoset.farm + '.static.flickr.com/' +
+                photoset.server + '/' + photoset.id + '_' + photoset.secret;
             $('<a/>')
                 .append($('<img>').prop('src', baseUrl + '_s.jpg'))
                 .prop('href', baseUrl + '_b.jpg')
-                .prop('title', photo.title)
+                .prop('title', photoset.title)
                 .attr('data-gallery', '')
                 .appendTo(linksContainer);
         });
