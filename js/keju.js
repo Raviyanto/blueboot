@@ -32,13 +32,13 @@ $(function () {
         var linksContainer = $('#links'),
             baseUrl;
         // Add the demo images as links with thumbnails to the page:
-        $.each(result.photosets.photoset, function (index, photoset) {
+        $.each(data.photosets.photoset, function (index, photoset) {
             baseUrl = 'https://farm' + photoset.farm + '.static.flickr.com/' +
                 photoset.server + '/' + photoset.id + '_' + photoset.secret;
             $('<a/>')
                 .append($('<img>').prop('src', baseUrl + '_s.jpg'))
                 .prop('href', baseUrl + '_b.jpg')
-                .prop('title', photoset.title)
+                .prop('title', photoset.title._content)
                 .attr('data-gallery', '')
                 .appendTo(linksContainer);
         });
