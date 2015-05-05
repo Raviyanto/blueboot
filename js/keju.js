@@ -13,7 +13,7 @@
 /*global blueimp, $ */
 
 $(function () {
-    //'use strict';
+    'use strict';
     
     $.ajax({
         // Flickr API is SSL only:
