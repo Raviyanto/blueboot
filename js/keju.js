@@ -31,7 +31,7 @@ $(function () {
         var linksContainer = $('#links'),
             baseUrl;
         // Add the demo images as links with thumbnails to the page:
-        $.each(data.photosets.photoset, function (index, photoset) {
+        $.each(resutl.photosets.photoset, function (index, photoset) {
             baseUrl = 'https://farm' + photoset.farm + '.static.flickr.com/' +
                 photoset.server + '/' + photoset.id + '_' + photoset.secret;
             $('<a/>')
