@@ -13,17 +13,17 @@
 /*global blueimp, $ */
 
 $(function () {
-    //'use strict';
+    'use strict';
     
+    // Load demo images from flickr:
     $.ajax({
         // Flickr API is SSL only:
         // https://code.flickr.net/2014/04/30/flickr-api-going-ssl-only-on-june-27th-2014/
         url: 'https://api.flickr.com/services/rest/',
         data: {
             format: 'json',
-            method: 'flickr.photosets.getList',
-            api_key: '85c26979a45e0709832bbe468f052256',
-            user_id: '44329575@N02'
+            method: 'flickr.interestingness.getList',
+            api_key: '7617adae70159d09ba78cfec73c13be3' // jshint ignore:line
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
@@ -31,9 +31,9 @@ $(function () {
         var linksContainer = $('#links'),
             baseUrl;
         // Add the demo images as links with thumbnails to the page:
-        $.each(data.photosets.photoset, function (index, photoset) {
-            baseUrl = 'https://farm' + photoset.farm + '.static.flickr.com/' +
-                photoset.server + '/' + photoset.id + '_' + photoset.secret;
+        $.each(result.photos.photo, function (index, photo) {
+            baseUrl = 'https://farm' + photo.farm + '.static.flickr.com/' +
+                photo.server + '/' + photo.id + '_' + photo.secret;
             $('<a/>')
                 .append($('<img>').prop('src', baseUrl + '_s.jpg'))
                 .prop('href', baseUrl + '_b.jpg')
@@ -42,6 +42,7 @@ $(function () {
                 .appendTo(linksContainer);
         });
     });
+
     
     $('#borderless-checkbox').on('change', function () {
         var borderless = $(this).is(':checked');
