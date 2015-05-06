@@ -21,17 +21,13 @@ $(function () {
         url: 'https://api.flickr.com/services/rest/',
         data: {
             format: 'json',
-            method: 'flickr.groups.pools.getPhotos',
-            api_key: '25aaf304700ebcd3db16a5b1c45cded2',
-            group_id: '2857925@N22',
-            user_id: '44329575@N02',
-            per_page: '50'
+            method: 'flickr.interestingness.getList',
+            api_key: '7617adae70159d09ba78cfec73c13be3' // jshint ignore:line
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
     }).done(function (result) {
-        var carouselLinks = [],
-            linksContainer = $('#links'),
+        var linksContainer = $('#links'),
             baseUrl;
         // Add the demo images as links with thumbnails to the page:
         $.each(result.photos.photo, function (index, photo) {
@@ -43,15 +39,6 @@ $(function () {
                 .prop('title', photo.title)
                 .attr('data-gallery', '')
                 .appendTo(linksContainer);
-            carouselLinks.push({
-                href: baseUrl + '_c.jpg',
-                title: photo.title
-            });
-        });
-        // Initialize the Gallery as image carousel:
-        blueimp.Gallery(carouselLinks, {
-            container: '#blueimp-image-carousel',
-            carousel: true
         });
     });
    
