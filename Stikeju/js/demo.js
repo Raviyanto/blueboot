@@ -27,7 +27,8 @@ $(function () {
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
     }).done(function (result) {
-        var linksContainer = $('#links'),
+        var carouselLinks = [],
+            linksContainer = $('#links'),
             baseUrl;
         // Add the demo images as links with thumbnails to the page:
         $.each(result.photos.photo, function (index, photo) {
@@ -39,6 +40,15 @@ $(function () {
                 .prop('title', photo.title)
                 .attr('data-gallery', '')
                 .appendTo(linksContainer);
+            carouselLinks.push({
+                href: baseUrl + '_c.jpg',
+                title: photo.title
+            });
+        });
+        // Initialize the Gallery as image carousel:
+        blueimp.Gallery(carouselLinks, {
+            container: '#blueimp-image-carousel',
+            carousel: true
         });
     });
    
