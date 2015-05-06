@@ -22,9 +22,8 @@ $(function () {
         data: {
             format: 'json',
             method: 'flickr.photosets.getList',
-            api_key: '289e70286ee086652c2dba8b889bb5e3',
-            user_id: '44329575@N02',
-            per_page: '50'
+            api_key: '85c26979a45e0709832bbe468f052256',
+            user_id: '44329575@N02'
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
