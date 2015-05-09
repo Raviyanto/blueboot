@@ -53,7 +53,7 @@ $.ajax({
 
     $('#image-gallery-button').on('click', function (event) {
         event.preventDefault();
-        blueimp.Gallery($('#links a'), $('#blueimp-gallery').data());
+        blueimp.Gallery($('#pinks a'), $('#blueimp-gallery').data());
     });
     
     $('#browse_app').click(function(){
