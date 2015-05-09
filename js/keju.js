@@ -26,8 +26,9 @@ $.ajax({
     dataType: 'jsonp',
     jsonp: 'jsoncallback'
 }).done(function (result) {
-    var linksContainer = $('#pinks'),
-        baseUrl;
+    var carouselLinks = [],
+            linksContainer = $('#pinks'),
+            baseUrl;
     $.each(result.photoset.photo, function (index, photo) {
         baseUrl = 'https://farm' + photo.farm + '.static.flickr.com/' +
             photo.server + '/' + photo.id + '_' + photo.secret;
@@ -37,9 +38,18 @@ $.ajax({
             .prop('title', photo.title)
             .attr('data-gallery', '')
             .appendTo(linksContainer);
+         carouselLinks.push({
+                href: baseUrl + '_c.jpg',
+                title: photo.title   
     });
 });
 
+    // Initialize the Gallery as image carousel:
+        blueimp.Gallery(carouselLinks, {
+            container: '#blueimp-image-carousel',
+            carousel: true
+        });
+    });
     
     $('#borderless-checkbox').on('change', function () {
         var borderless = $(this).is(':checked');
