@@ -26,7 +26,7 @@ $.ajax({
     dataType: 'jsonp',
     jsonp: 'jsoncallback'
 }).done(function (result) {
-    var linksContainer = $('#links'),
+    var linksContainer = $('#pinks'),
         baseUrl;
     $.each(result.photoset.photo, function (index, photo) {
         baseUrl = 'https://farm' + photo.farm + '.static.flickr.com/' +
