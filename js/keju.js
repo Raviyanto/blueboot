@@ -13,44 +13,33 @@
 /*global blueimp, $ */
 
 $(function () {
-'use strict';
-$.ajax({
-    url: 'https://api.flickr.com/services/rest/',
-    data: {
-        format: 'json',
-        method: 'flickr.photosets.getPhotos',
-        photoset_id: '72157652334119505',
-        api_key: 'f45b1abe259eee0c944adbe1cd2a8aed',
-        user_id: '44329575@N02'
-    },
-    dataType: 'jsonp',
-    jsonp: 'jsoncallback'
-}).done(function (result) {
-    var carouselLinks = [],
-            linksContainer = $('#pinks'),
+    'use strict';
+    $.ajax({
+        url: 'https://api.flickr.com/services/rest/',
+        data: {
+            format: 'json',
+            method: 'flickr.photosets.getPhotos',
+            photoset_id: '72157652334119505',
+            api_key: 'f45b1abe259eee0c944adbe1cd2a8aed',
+            user_id: '44329575@N02'
+        },
+        dataType: 'jsonp',
+        jsonp: 'jsoncallback'
+    }).done(function (result) {
+        var linksContainer = $('#pinks'),
             baseUrl;
-    $.each(result.photoset.photo, function (index, photo) {
-        baseUrl = 'https://farm' + photo.farm + '.static.flickr.com/' +
-            photo.server + '/' + photo.id + '_' + photo.secret;
-        $('<a/>')
-            .append($('<img>').prop('src', baseUrl + '_q.jpg'))
-            .prop('href', baseUrl + '_b.jpg')
-            .prop('title', photo.title)
-            .attr('data-gallery', '')
-            .appendTo(linksContainer);
-         carouselLinks.push({
-                href: baseUrl + '_c.jpg',
-                title: photo.title   
-    });
-});
-
-    // Initialize the Gallery as image carousel:
-        blueimp.Gallery(carouselLinks, {
-            container: '#blueimp-image-carousel',
-            carousel: true
+        $.each(result.photoset.photo, function (index, photo) {
+            baseUrl = 'https://farm' + photo.farm + '.static.flickr.com/' +
+                photo.server + '/' + photo.id + '_' + photo.secret;
+            $('<a/>')
+                .append($('<img>').prop('src', baseUrl + '_q.jpg'))
+                .prop('href', baseUrl + '_b.jpg')
+                .prop('title', photo.title)
+                .attr('data-gallery', '')
+                .appendTo(linksContainer);
         });
     });
-    
+
     $('#borderless-checkbox').on('change', function () {
         var borderless = $(this).is(':checked');
         $('#blueimp-gallery').data('useBootstrapModal', !borderless);
