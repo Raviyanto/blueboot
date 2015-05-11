@@ -15,24 +15,25 @@
 $(function () {
     'use strict';
     $.ajax({
+        // Flickr API is SSL only:
+        // https://code.flickr.net/2014/04/30/flickr-api-going-ssl-only-on-june-27th-2014/
         url: 'https://api.flickr.com/services/rest/',
         data: {
             format: 'json',
-            method: 'flickr.photosets.getPhotos',
-            photoset_id: '72157652334119505',
-            api_key: 'f45b1abe259eee0c944adbe1cd2a8aed',
-            user_id: '44329575@N02'
+            method: 'flickr.interestingness.getList',
+            api_key: '7617adae70159d09ba78cfec73c13be3' // jshint ignore:line
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
     }).done(function (result) {
         var linksContainer = $('#links'),
             baseUrl;
-        $.each(result.photoset.photo, function (index, photo) {
+        // Add the demo images as links with thumbnails to the page:
+        $.each(result.photos.photo, function (index, photo) {
             baseUrl = 'https://farm' + photo.farm + '.static.flickr.com/' +
                 photo.server + '/' + photo.id + '_' + photo.secret;
             $('<a/>')
-                .append($('<img>').prop('src', baseUrl + '_q.jpg'))
+                .append($('<img>').prop('src', baseUrl + '_s.jpg'))
                 .prop('href', baseUrl + '_b.jpg')
                 .prop('title', photo.title)
                 .attr('data-gallery', '')
