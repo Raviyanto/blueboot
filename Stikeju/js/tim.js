@@ -1,4 +1,3 @@
-/* blueimp-demo */
 $(function () {
     'use strict';
 
@@ -9,10 +8,8 @@ $(function () {
         url: 'https://api.flickr.com/services/rest/',
         data: {
             format: 'json',
-            method: 'flickr.photosets.getPhotos',
-            api_key: '5675f68c4c45f9c0113d18b386881f2f',
-            photoset_id: '72157650283743964',
-            user_id: '44329575@N02'
+            method: 'flickr.interestingness.getList',
+            api_key: '7617adae70159d09ba78cfec73c13be3' // jshint ignore:line
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
@@ -21,7 +18,7 @@ $(function () {
             linksContainer = $('#links'),
             baseUrl;
         // Add the demo images as links with thumbnails to the page:
-        $.each(result.photoset.photo, function (index, photo) {
+        $.each(result.photos.photo, function (index, photo) {
             baseUrl = 'https://farm' + photo.farm + '.static.flickr.com/' +
                 photo.server + '/' + photo.id + '_' + photo.secret;
             $('<a/>')
