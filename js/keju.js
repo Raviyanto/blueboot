@@ -26,7 +26,7 @@ $(function () {
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
     }).done(function (result) {
-        var linksContainer = $('#pinks'),
+        var linksContainer = $('#links'),
             baseUrl;
         $.each(result.photoset.photo, function (index, photo) {
             baseUrl = 'https://farm' + photo.farm + '.static.flickr.com/' +
@@ -52,7 +52,7 @@ $(function () {
 
     $('#image-gallery-button').on('click', function (event) {
         event.preventDefault();
-        blueimp.Gallery($('#pinks a'), $('#blueimp-gallery').data());
+        blueimp.Gallery($('#links a'), $('#blueimp-gallery').data());
     });
     
     $('#browse_app').click(function(){
