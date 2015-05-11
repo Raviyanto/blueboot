@@ -41,6 +41,35 @@ $(function () {
         });
     });
 
+    $.ajax({
+        // Flickr API is SSL only:
+        // https://code.flickr.net/2014/04/30/flickr-api-going-ssl-only-on-june-27th-2014/
+        url: 'https://api.flickr.com/services/rest/',
+        data: {
+            format: 'json',
+            method: 'flickr.photosets.getPhotos',
+            api_key: '5675f68c4c45f9c0113d18b386881f2f',
+            photoset_id: '72157650283743964',
+            user_id: '44329575@N02'
+        },
+        dataType: 'jsonp',
+        jsonp: 'jsoncallback'
+    }).done(function (result) {
+        var linksContainer = $('#links'),
+            baseUrl;
+        // Add the demo images as links with thumbnails to the page:
+        $.each(result.photoset.photo, function (index, photo) {
+            baseUrl = 'https://farm' + photo.farm + '.static.flickr.com/' +
+                photo.server + '/' + photo.id + '_' + photo.secret;
+            $('<a/>')
+                .append($('<img>').prop('src', baseUrl + '_s.jpg'))
+                .prop('href', baseUrl + '_b.jpg')
+                .prop('title', photo.title)
+                .attr('data-gallery', '')
+                .appendTo(linksContainer);
+        });
+    });
+    
     $('#borderless-checkbox').on('change', function () {
         var borderless = $(this).is(':checked');
         $('#blueimp-gallery').data('useBootstrapModal', !borderless);
