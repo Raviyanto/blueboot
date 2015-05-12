@@ -1,3 +1,16 @@
+/*
+ * blueimp Gallery Demo JS 2.12.1
+ * https://github.com/blueimp/Gallery
+ *
+ * Copyright 2013, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+
+/* global blueimp, $ */
+
 $(function () {
     'use strict';
 
