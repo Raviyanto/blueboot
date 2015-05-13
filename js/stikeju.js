@@ -14,37 +14,32 @@
 
 $(function () {
     'use strict';
-
-    // Load demo images from flickr:
+    
     $.ajax({
-        // Flickr API is SSL only:
-        // https://code.flickr.net/2014/04/30/flickr-api-going-ssl-only-on-june-27th-2014/
-        url: 'https://api.flickr.com/services/rest/',
+    url: (window.location.protocol === 'https:' ? 'https://secure' : 'http://api') + '.flickr.com/services/rest/',
         data: {
             format: 'json',
-            method: 'flickr.photosets.getList',
-            api_key: '3e4c6cc06971191d5115828a46d2283d',
-            user_id: '44329575@N02',
-            auth_token: '72157652361497238-77f22dfe37e5b4b5',
-            api_sig: '3e0bdca55ed3a4ea299235307dbb5161'
+            method: 'flickr.photosets.getPhotos',
+            api_key: 'dbb49a0e2dcc3958834f1b92c072be62',
+            photoset_id: '72157627145038616'
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
     }).done(function (result) {
         var linksContainer = $('#links'),
             baseUrl;
-        // Add the demo images as links with thumbnails to the page:
+
+    // Add the demo images as links with thumbnails to the page:
         $.each(result.photoset.photo, function (index, photo) {
-            baseUrl = 'https://farm' + photo.farm + '.static.flickr.com/' +
-                photo.server + '/' + photo.id + '_' + photo.secret;
-            $('<a/>')
-                .append($('<img>').prop('src', baseUrl + '_s.jpg'))
+            baseUrl = 'http://farm' + photo.farm + '.static.flickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret;
+            $('<a/>').append($('<img>Click to load remote image from Flickr</img>').prop("src", baseUrl + "_s.jpg"))
                 .prop('href', baseUrl + '_b.jpg')
                 .prop('title', photo.title)
                 .attr('data-gallery', '')
                 .appendTo(linksContainer);
         });
-    });
+    }); 
+
     
     $('#borderless-checkbox').on('change', function () {
         var borderless = $(this).is(':checked');
