@@ -22,10 +22,11 @@ $(function () {
         url: 'https://api.flickr.com/services/rest/',
         data: {
             format: 'json',
-            method: 'flickr.photosets.getPhotos',
-            api_key: 'c9387dc465bc9dae704107e43c10258e',
-            photoset_id: '72157650283743964',
-            user_id: '44329575@N02'
+            method: 'flickr.photosets.getList',
+            api_key: '3e4c6cc06971191d5115828a46d2283d',
+            user_id: '44329575@N02',
+            auth_token: '72157652361497238-77f22dfe37e5b4b5',
+            api_sig: '3e0bdca55ed3a4ea299235307dbb5161'
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
