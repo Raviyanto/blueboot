@@ -19,9 +19,8 @@ $(function () {
         url: (window.location.protocol === 'https:' ? 'https://secure' : 'http://api') + '.flickr.com/services/rest/',
         data: {
             format: 'json',
-            method: 'flickr.photosets.getPhotos',
-            api_key: 'dbb49a0e2dcc3958834f1b92c072be62',
-            photoset_id: '72157627145038616'
+            method: 'flickr.interestingness.getList',
+            api_key: '7617adae70159d09ba78cfec73c13be3'
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
