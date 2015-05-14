@@ -28,10 +28,10 @@ $(function () {
                     .prop('href', item.media.m)
                     .prop('title', photo.title)
                     .attr('data-gallery', '')
-                    .attr('width', '200px');
-                    .attr('height', '150px');
-                    .attr('data-gallery', '');
-                    .appendTo("#links");
+                    .attr('width', '200px')
+                    .attr('height', '150px')
+                    .attr('data-gallery', '')
+                    .attr("src", item.media.m).appendTo("#links");
                     if (i == 9) return false;
             });
         });
