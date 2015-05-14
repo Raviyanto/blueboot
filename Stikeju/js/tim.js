@@ -16,12 +16,13 @@ $(function () {
 
     // Load demo images from flickr:
     $.ajax({
-        url: (window.location.protocol === 'https:' ? 'https://secure' : 'http://api') + '.flickr.com/services/rest/',
+        // Flickr API is SSL only:
+        // https://code.flickr.net/2014/04/30/flickr-api-going-ssl-only-on-june-27th-2014/
+        url: 'https://api.flickr.com/services/rest/',
         data: {
             format: 'json',
-            method: 'flickr.photosets.getPhotos',
-            api_key: 'dbb49a0e2dcc3958834f1b92c072be62',
-            photoset_id: '72157627145038616'
+            method: 'flickr.interestingness.getList',
+            api_key: '7617adae70159d09ba78cfec73c13be3' // jshint ignore:line
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
@@ -30,7 +31,7 @@ $(function () {
             linksContainer = $('#links'),
             baseUrl;
         // Add the demo images as links with thumbnails to the page:
-        $.each(result.photoset.photo, function (index, photo) {
+        $.each(result.photos.photo, function (index, photo) {
             baseUrl = 'https://farm' + photo.farm + '.static.flickr.com/' +
                 photo.server + '/' + photo.id + '_' + photo.secret;
             $('<a/>')
@@ -50,7 +51,6 @@ $(function () {
             carousel: true
         });
     });
-
    
     $('#browse_app').click(function(){
         window.location='/'
