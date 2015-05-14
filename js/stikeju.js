@@ -28,6 +28,9 @@ $(function () {
 -                    img.attr('width', '200px');
 -                    img.attr('height', '150px');
 -                    img.attr('data-gallery', '');
+                     img.prop('title', photo.title);
+                     img.prop('src', item.media.m);
+                     img.prop('href', item.meida.m);
 -                    img.attr("src", item.media.m).appendTo("#links");
                     if (i == 9) return false;
             });
