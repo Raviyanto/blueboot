@@ -16,9 +16,7 @@ $(function () {
 
     // Load demo images from flickr:
     $.ajax({
-        // Flickr API is SSL only:
-        // https://code.flickr.net/2014/04/30/flickr-api-going-ssl-only-on-june-27th-2014/
-        url: 'https://api.flickr.com/services/rest/',
+        url: (window.location.protocol === 'https:' ? 'https://secure' : 'http://api') + '.flickr.com/services/rest/',
         data: {
             format: 'json',
             method: 'flickr.photosets.getPhotos',
