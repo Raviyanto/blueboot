@@ -16,30 +16,19 @@ $(function () {
     'use strict';
     
     // Load demo images from flickr:
-    $.ajax({
-        // Flickr API is SSL only:
-        // https://code.flickr.net/2014/04/30/flickr-api-going-ssl-only-on-june-27th-2014/
-        url: 'https://api.flickr.com/services/rest/',
-        data: {
-            format: 'json',
-            method: 'flickr.interestingness.getList',
-            api_key: '7617adae70159d09ba78cfec73c13be3' // jshint ignore:line
-        },
-        dataType: 'jsonp',
-        jsonp: 'jsoncallback'
-    }).done(function (result) {
-        var linksContainer = $('#links'),
-            baseUrl;
-        // Add the demo images as links with thumbnails to the page:
-        $.each(result.photos.photo, function (index, photo) {
-            baseUrl = 'https://farm' + photo.farm + '.static.flickr.com/' +
-                photo.server + '/' + photo.id + '_' + photo.secret;
-            $('<a/>')
-                .append($('<img>').prop('src', baseUrl + '_s.jpg'))
-                .prop('href', baseUrl + '_b.jpg')
-                .prop('title', photo.title)
-                .attr('data-gallery', '')
-                .appendTo(linksContainer);
+    $(document).ready(function() {
+        $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?", {
+            tags: "stikeju",
+            tagmode: "any",
+            format: "json"
+        }, function(data) {
+            $.each(data.items, function(i, item) {
+                var img = $("<img/>");
+                img.attr('width', '200px');
+                img.attr('height', '150px');
+                img.attr("src", item.media.m).appendTo("#links");
+                if (i == 9) return false;
+            });
         });
     });
 
