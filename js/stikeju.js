@@ -23,12 +23,13 @@ $(function () {
             format: "json"
         }, function(data) {
             $.each(data.items, function(i, item) {
-                var img = $("<img/>");
-                img.attr('width', '200px');
-                img.attr('height', '150px');
-                img.attr('data-gallery', '');
-                img.attr("src", item.media.m).appendTo("#links");
-                if (i == 9) return false;
+                $('<a/>')
+                    var img = $("<img/>");
+                    img.attr('width', '200px');
+                    img.attr('height', '150px');
+                    img.attr('data-gallery', '');
+                    img.attr("src", item.media.m).appendTo("#links");
+                    if (i == 9) return false;
             });
         });
     });
