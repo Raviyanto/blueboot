@@ -26,7 +26,7 @@ $(function () {
                 var img = $("<img/>");
                 img.attr('width', '200px');
                 img.attr('height', '150px');
-                img.attr("src", item.media.m).appendTo("#links");
+                img.attr('data-gallery', '').appendTo("#links");
                 if (i == 9) return false;
             });
         });
