@@ -24,11 +24,14 @@ $(function () {
         }, function(data) {
             $.each(data.items, function(i, item) {
                 $('<a/>')
-                    var img = $("<img/>");
-                    img.attr('width', '200px');
-                    img.attr('height', '150px');
-                    img.attr('data-gallery', '');
-                    img.attr("src", item.media.m).appendTo("#links");
+                    .append($('<img>').prop('src', item.media.m))
+                    .prop('href', item.media.m)
+                    .prop('title', photo.title)
+                    .attr('data-gallery', '')
+                    .attr('width', '200px');
+                    .attr('height', '150px');
+                    .attr('data-gallery', '');
+                    .appendTo("#links");
                     if (i == 9) return false;
             });
         });
