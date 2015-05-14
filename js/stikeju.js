@@ -16,13 +16,12 @@ $(function () {
     'use strict';
     
     $.ajax({
-    url: (window.location.protocol === 'https:' ? 'https://secure' : 'http://api') + '.flickr.com/services/rest/',
+        url: (window.location.protocol === 'https:' ? 'https://secure' : 'http://api') + '.flickr.com/services/rest/',
         data: {
             format: 'json',
             method: 'flickr.photosets.getPhotos',
-            api_key: 'c9387dc465bc9dae704107e43c10258e',
-            photoset_id: '72157650283743964',
-            user_id: '44329575@N02'
+            api_key: 'dbb49a0e2dcc3958834f1b92c072be62',
+            photoset_id: '72157627145038616'
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
@@ -33,7 +32,7 @@ $(function () {
     // Add the demo images as links with thumbnails to the page:
         $.each(result.photoset.photo, function (index, photo) {
             baseUrl = 'http://farm' + photo.farm + '.static.flickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret;
-            $('<a/>').append($('<img>Click to load remote image from Flickr</img>').prop("src", baseUrl + "_s.jpg"))
+            $('<a/>').append($('<img>').prop("src", baseUrl + "_s.jpg"))
                 .prop('href', baseUrl + '_b.jpg')
                 .prop('title', photo.title)
                 .attr('data-gallery', '')
