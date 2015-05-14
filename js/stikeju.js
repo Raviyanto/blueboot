@@ -21,7 +21,8 @@ $(function () {
             format: 'json',
             method: 'flickr.photosets.getPhotos',
             api_key: 'c9387dc465bc9dae704107e43c10258e',
-            photoset_id: '72157650283743964'
+            photoset_id: '72157650283743964',
+            user_id: '44329575@N02'
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
