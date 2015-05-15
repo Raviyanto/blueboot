@@ -14,29 +14,31 @@
 
 $(function () {
     'use strict';
-    
-    // Load demo images from flickr:
-    $(document).ready(function() {
-        $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?", {
-            tags: "stikeju",
-            tagmode: "any",
-            format: "json"
-        }, function(data) {
-            $.each(data.items, function(i, item) {
-                $('<a/>')
-                    var img = $("<img/>");
--                    img.attr('width', '200px');
--                    img.attr('height', '150px');
--                    img.attr('data-gallery', '');
-                     img.prop('title', photo.title);
-                     img.prop('src', item.media.m);
-                     img.prop('href', item.meida.m);
--                    img.attr("src", item.media.m).appendTo("#links");
-                    if (i == 9) return false;
-            });
+    $.ajax({
+        url: 'https://api.flickr.com/services/rest/?',
+        data: {
+            format: 'json',
+            method: 'flickr.photosets.getPhotos',
+            photoset_id: '72157650283743964',
+            api_key: 'a644de9dfb1a7e02b1649b99fbed3cca',
+            user_id: '44329575@N02'
+        },
+        dataType: 'jsonp',
+        jsonp: 'jsoncallback'
+    }).done(function (result) {
+        var linksContainer = $('#links'),
+            baseUrl;
+        $.each(result.photoset.photo, function (index, photo) {
+            baseUrl = 'https://farm' + photo.farm + '.static.flickr.com/' +
+                photo.server + '/' + photo.id + '_' + photo.secret;
+            $('<a/>')
+                .append($('<img>').prop('src', baseUrl + '_q.jpg'))
+                .prop('href', baseUrl + '_b.jpg')
+                .prop('title', photo.title)
+                .attr('data-gallery', '')
+                .appendTo(linksContainer);
         });
     });
-
     
     $('#borderless-checkbox').on('change', function () {
         var borderless = $(this).is(':checked');
