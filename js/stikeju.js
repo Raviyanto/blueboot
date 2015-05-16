@@ -20,8 +20,7 @@ $(function () {
             format: 'json',
             method: 'flickr.photosets.getPhotos',
             photoset_id: '72157650283743964',
-            api_key: 'a644de9dfb1a7e02b1649b99fbed3cca',
-            user_id: '44329575@N02'
+            api_key: '657b649e2c2ae709fa97688f11c86bdb'
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
