@@ -19,8 +19,8 @@ $(function () {
         data: {
             format: 'json',
             method: 'flickr.photosets.getPhotos',
-            photoset_id: '72157650283743964',
-            api_key: '657b649e2c2ae709fa97688f11c86bdb'
+            api_key: '657b649e2c2ae709fa97688f11c86bdb',
+            photoset_id: '72157650283743964'
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
@@ -30,8 +30,7 @@ $(function () {
         $.each(result.photoset.photo, function (index, photo) {
             baseUrl = 'https://farm' + photo.farm + '.static.flickr.com/' +
                 photo.server + '/' + photo.id + '_' + photo.secret;
-            $('<a/>')
-                .append($('<img>').prop('src', baseUrl + '_q.jpg'))
+            $('<a/>').append($('<img>').prop('src', baseUrl + '_s.jpg'))
                 .prop('href', baseUrl + '_b.jpg')
                 .prop('title', photo.title)
                 .attr('data-gallery', '')
