@@ -1,5 +1,5 @@
 /*
- * blueimp Gallery Demo JS 2.12.1
+ * blueimp Gallery JS 2.12.1
  * https://github.com/blueimp/Gallery
  *
  * Copyright 2013, Sebastian Tschan
@@ -21,7 +21,7 @@ $(function () {
             format: 'json',
             method: 'flickr.photosets.getPhotos',
             photoset_id: '72157650283743964',
-            api_key: 'c70c9f0b25189519aaceaaba8316239f'
+            api_key: 'b826ff0ff3a1a2e59821dadde0372097'
         },
         dataType: 'jsonp',
         jsonp: 'jsoncallback'
