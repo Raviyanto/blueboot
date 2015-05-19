@@ -19,7 +19,7 @@ $(function () {
         data: {
             format: 'json',
             method: 'flickr.photosets.getPhotos',
-            api_key: 'c70c9f0b25189519aaceaaba8316239f',
+            api_key: 'b826ff0ff3a1a2e59821dadde0372097',
             photoset_id: '72157650283743964'
         },
         dataType: 'jsonp',
